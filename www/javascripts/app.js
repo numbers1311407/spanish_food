@@ -49,7 +49,7 @@
     });
 
     $scope.reset = function () {
-      window.location.reload();
+      window.location.reload(true);
     };
 
     $scope.hasPage = function (page) {
