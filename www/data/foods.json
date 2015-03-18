@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Apples",
+    "image": "/images/foods/apple.jpeg"
+  },
+  {
+    "name": "Broccoli",
+    "image": "/images/foods/broccoli.jpeg"
+  },
+  {
+    "name": "Carrots",
+    "image": "/images/foods/carrot.jpeg"
+  },
+  {
+    "name": "Eggs",
+    "image": "/images/foods/egg.jpeg"
+  },
+  {
+    "name": "Fish",
+    "image": "/images/foods/fish.jpeg"
+  },
+  {
+    "name": "Meat",
+    "image": "/images/foods/meat.jpeg"
+  },
+  {
+    "name": "Milk",
+    "image": "/images/foods/milk.jpeg"
+  },
+  {
+    "name": "Oranges",
+    "image": "/images/foods/orange.jpeg"
+  },
+  {
+    "name": "Yogurt",
+    "image": "/images/foods/yogurt.jpeg"
+  }
+]

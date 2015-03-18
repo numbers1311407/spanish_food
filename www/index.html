@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>Food</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" media="screen" />
+    <script src="/components/jquery/dist/jquery.min.js"></script>
+    <script src="/components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="/components/angular/angular.min.js"></script>
+    <script src="/components/angular-dragdrop/src/angular-dragdrop.js"></script>
+    <script src="/javascripts/app.js"></script>
+  </head>
+  <body ng-app="spanish_food">
+    <div id="main" role="main" ng-controller="MainCtrl">
+      <div id="splash" class="page-splash page">
+        <div class="page-cell">
+          <h1>What do you like to eat?</h1>
+          <p><img src="/images/kid.jpeg"></p>
+          <p>
+            <span ng-hide="ready">Loading...</span>
+            <button class="pure-button pure-button-primary" ng-show="ready" ng-click="nextPage(1)">Let's Go!</button>
+          </p>
+        </div>
+      </div>
+
+      <div class="page-food page" ng-class="{liked: showLiked(food.name), disliked: showDisliked(food.name)}" ng-repeat="food in foods track by $index">
+        <div class="page-row">
+          <div class="page-cell">
+            <div id="like-zone" class="dropzone"
+                data-drop="true"
+                jqyoui-droppable='{onDrop: "onLikeDrop"}'>
+            </div>
+          </div>
+          <div class="page-cell">
+            <div ng-show="showQuestion(food.name)">
+              <h2>Do you like?</h2>
+              <div class="food" 
+                  data-drag="true"
+                  data-food="{{food.name}}"
+                  jqyoui-draggable='{}'
+                  data-jqyoui-options='{containment: "document", revert: "invalid"}'>
+
+                <p ng-bind="food.name"></p>
+                <img ng-src="{{ food.image }}" />
+              </div>
+            </div>
+            <div class="food-msg" ng-hide="showQuestion(food.name)">
+              <p ng-show="showLiked(food.name)" class="msg-like"> You <strong>like</strong> {{food.name}}! </p>
+              <p ng-show="showDisliked(food.name)" class="msg-dislike"> You <strong>don't like</strong> {{food.name}}! </p>
+              <button class="pure-button pure-button-primary" ng-click="nextPage($index+2)">
+                {{ hasPage($index+2) ? "What else is there to eat?" : "That's all the foods!  Try again?" }}
+              </button>
+            </div>
+          </div>
+          <div class="page-cell">
+            <div id="dislike-zone" class="dropzone" 
+                data-drop="true" 
+                jqyoui-droppable='{onDrop: "onDislikeDrop"}'
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
